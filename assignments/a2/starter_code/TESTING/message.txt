@@ -1,0 +1,23 @@
+
+
+
+
+def _sort_subtrees(tree: TMTree) -> None:
+    """Sort the subtrees of <tree> in alphabetical order.
+    THIS IS FOR THE PURPOSES OF THE SAMPLE TEST ONLY; YOU SHOULD NOT SORT
+    YOUR SUBTREES IN THIS WAY. This allows the sample test to run on different
+    operating systems.
+
+    This is recursive, and affects all levels of the tree.
+    """
+    if not tree.is_empty():
+        for subtree in tree._subtrees:
+            _sort_subtrees(subtree)
+
+        tree._subtrees.sort(key=lambda t: t._name)
+
+
+if __name__ == '__main__':
+    import pytest
+
+    pytest.main(['a2_sample_test.py'])
